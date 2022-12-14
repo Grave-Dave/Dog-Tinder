@@ -1,0 +1,175 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	font-size: 62.5%;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Poppins', sans-serif;
+	background-color: #333;
+}
+
+.App {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	background-color: #fff;
+	color: #fff;
+	max-width: 100vw;
+	min-width: 100vw;
+	height: 100vh;
+}
+
+header {
+	padding: 2em;
+}
+
+.icon-box {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.user-icon img,
+.chat-icon img {
+	width: 34px;
+	cursor: pointer;
+}
+.logo-icon img {
+	width: 84px;
+	cursor: pointer;
+}
+
+.img {
+	position: relative;
+	padding: 0 1.5em;
+}
+
+.img .dog-img {
+	width: 100%;
+	height: 100%;
+	max-height: 350px;
+	/* min-width: 520px; */
+	border-radius: 15px;
+	object-fit: cover;
+}
+
+.img .badge {
+	position: absolute;
+	top: 8%;
+	left: 5%;
+	width: 50%;
+	transform: rotate(-30deg);
+}
+.img--info {
+	position: absolute;
+	bottom: 5%;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 1em 2em;
+	width: 90%;
+	letter-spacing: 2px;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 15px;
+}
+
+.img--info .personal {
+	margin-bottom: 0.1em;
+	font-size: 2.2rem;
+	font-weight: 600;
+}
+.img--info .description {
+	font-size: 1.4rem;
+	font-weight: 100;
+}
+
+.choice-box {
+	padding: 2em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5em;
+}
+.like-btn,
+.nope-btn {
+	padding: 1.5em;
+	border-radius: 50%;
+	border: none;
+	background-color: #fff;
+	box-shadow: 0px 10px 20px #e9e9ea;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+.like-btn img,
+.nope-btn img {
+	width: 30px;
+	transform: translateY(2px);
+}
+
+.like-btn:hover {
+	background-color: #dbfff4;
+}
+.nope-btn:hover {
+	background-color: #ffe7ef;
+}
+
+.no-dogs{
+	padding: 2em;
+	color: #000;
+	text-align: center;
+	font-size: 2rem;
+}
+
+.chat{
+	position: relative;
+	color: #000;
+}
+.chat--heading{
+	padding: 0 1em;
+	font-size: 3rem;
+	margin-bottom: 1em;
+}
+.liked-dog-box{
+	display: flex;
+	margin-left: 1em;
+	gap: 1em;
+	overflow-x: auto;
+}
+.liked-dog{	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.liked-dog--img{
+	border-radius: 15px;
+	width: 200px;
+	height: 300px;
+}
+
+@media (min-width: 550px) {
+	.App {
+		max-width: 550px;
+		min-width:550px;
+	}
+	.img--info .personal {
+		font-size: 3.4rem;
+	}
+	.img--info .description {
+		font-size: 2.4rem;
+	}
+	.img .dog-img {
+		max-height: 700px;
+	}
+	.no-dogs{
+		font-size: 4rem;
+	}
+}
