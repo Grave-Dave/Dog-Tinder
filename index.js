@@ -2,7 +2,7 @@ import Dog from './Dog.js';
 import dogData from './data.js';
 import { getDogNum } from './utils.js';
 
-const likedDogs = [];
+let likedDogs = [];
 let dogNum = getDogNum(dogData.length);
 let dog = getNewDog();
 let isWaiting = false;
@@ -67,6 +67,7 @@ function openChat() {
 	const dogs = likedDogs
 		.map(dog => {
 			return `<div class="liked-dog">
+					<i class="fa-solid fa-user-xmark"></i>
                     <img class="liked-dog--img" src="${dog.avatar}">
                     <h2 class="liked-dog--name">${dog.name}</h2>
                 </div>`;
@@ -76,9 +77,26 @@ function openChat() {
             <section class="chat">
                 <h1 class="chat--heading">Liked dogs</h1>
                     <div class="liked-dog-box">
-                        ${dogs}
+                        ${dogs ? dogs : "<p>You haven't liked any dog yet...</p>"}
                     </div>
             </section>`;
+			
+	document.querySelectorAll('.fa-user-xmark').forEach(el =>
+		el.addEventListener('click', e => {
+			const deletedDogName = e.target.parentElement.childNodes[5].innerHTML;
+			deleteDog(deletedDogName);
+		})
+	);
+}
+function deleteDog(dogName) {
+	dogData.push(...likedDogs.filter(dog=> dog.name === dogName).map(dog=>({...dog,hasBeenSwiped: false, hasBeenLiked: false})))
+	dog = getNewDog()
+	likedDogs = likedDogs.filter(dog=>{
+		if(dog.name !== dogName){
+			return dog;
+		}
+	})
+	openChat()
 }
 
 function closeChat() {
