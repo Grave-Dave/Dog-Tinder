@@ -177,7 +177,7 @@ header {
 	height: 300px;
 }
 
-@media (min-width: 375px) {
+@media (min-width: 375px) and (orientation: portrait)  {
 	.img .dog-img {
 		max-height: 450px;
 	}
@@ -194,10 +194,19 @@ header {
 	.img--info .description {
 		font-size: 2rem;
 	}
-	.img .dog-img {
-		max-height: 500px;
-	}
 	.no-dogs {
 		font-size: 4rem;
+	}
+}
+
+@media (min-width: 550px) and (min-height: 700px)  {
+	.img .dog-img {
+		max-height: 530px;
+	}
+}
+
+@media (min-width: 550px) and (orientation: portrait)  {
+	.img .dog-img {
+		max-height: 650px;
 	}
 }
